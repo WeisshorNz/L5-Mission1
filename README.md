@@ -10,3 +10,4 @@ set up a script in package.json:<br>
     "test": "echo \"Error: no test specified\" && exit 1"<br>
   },<br>
   start server: npm start. (this will start nodemon)<br>
+  Open your web browser and navigate to http://localhost:3000 to access the server.
