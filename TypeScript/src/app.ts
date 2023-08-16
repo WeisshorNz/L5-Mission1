@@ -1,11 +1,14 @@
-const express = require("express");
+import express, { Request, Response } from "express";
+
 const server = express();
 server.use(express.json());
+import dotenv from "dotenv";
+dotenv.config(); 
 
 // Function that takes a car model as string and returns an array of numbers with its corresponding index in the English Alphabet
-function indexOfAlphabet(carModel) {
+function indexOfAlphabet(carModel: string): number[] {
   const romanAlphabet = "abcdefghijklmnopqrstuvwxyz";
-  const modelInNumbers = [];
+  const modelInNumbers: number[] = [];
 
   for (let i = 0; i < carModel.length; i++) {
     const lowerCaseModel = carModel[i].toLowerCase();
@@ -17,16 +20,18 @@ function indexOfAlphabet(carModel) {
 
   return modelInNumbers;
 }
+
 // Function that outputs the sum of all values in the modelInNumbers array
-function sumArrayValues(array) {
+function sumArrayValues(array: number[]): number {
   let sum = 0;
   for (let i = 0; i < array.length; i++) {
     sum += array[i];
   }
   return sum;
 }
-//function that counts the number of times the words in the keywords array repeat in the input (word)
-function countKeywords(word) {
+
+// Function that counts the number of times the words in the keywords array repeat in the input (word)
+function countKeywords(word: string): number {
   const keywords = ["collide", "crash", "scratch", "bump", "smash"];
   const wordArray = word.toLowerCase().split(/\s+/);
 
@@ -40,20 +45,15 @@ function countKeywords(word) {
 
   return count;
 }
-// function that calculates yearly premium based on car value and risk
 
-function premiumCalculator(value, risk) {
+// Function that calculates yearly premium based on car value and risk
+function premiumCalculator(value: number, risk: number): number {
   const premium = Number(((value * risk) / 100).toFixed(1));
   return premium;
 }
 
-// Test endpoint to list cars
-server.get("/", (req, res) => {
-  res.send(cars);
-});
-
-//  POST endpoint for calculating car value
-server.post("/calculate_car_value", (req, res) => {
+// POST endpoint for calculating car value
+server.post("/calculate_car_value", (req: Request, res: Response) => {
   try {
     const { model, year } = req.body;
 
@@ -63,17 +63,16 @@ server.post("/calculate_car_value", (req, res) => {
 
     const modelNumbers = indexOfAlphabet(model);
     const totalSum = sumArrayValues(modelNumbers);
-    // const carValue = totalSum * 100 + year;
-    car_value = totalSum * 100 + year;
+    const carValue = totalSum * 100 + year;
 
-    return res.json({ car_value });
+    return res.json({ car_value: carValue });
   } catch (error) {
     return res.status(500).json({ error: "There is an error" });
   }
 });
 
-//POST endpoint to calculate risk rating
-server.post("/calculateRiskRating", (req, res) => {
+// POST endpoint to calculate risk rating
+server.post("/calculateRiskRating", (req: Request, res: Response) => {
   try {
     const { claim_history } = req.body;
 
@@ -81,15 +80,15 @@ server.post("/calculateRiskRating", (req, res) => {
       throw new Error("Invalid input");
     }
 
-    risk_rating = countKeywords(claim_history);
-    res.json({ risk_rating });
+    const riskRating = countKeywords(claim_history);
+    res.json({ risk_rating: riskRating });
   } catch (error) {
     res.status(400).json({ error: "There is an error" });
   }
 });
 
-//POST endpoint to calculate premiums
-server.post("/calculate_premium", (req, res) => {
+// POST endpoint to calculate premiums
+server.post("/calculate_premium", (req: Request, res: Response) => {
   try {
     const { car_value, risk_rating } = req.body;
     const yearly_premium = Number(
