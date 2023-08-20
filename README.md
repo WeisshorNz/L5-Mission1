@@ -8,11 +8,11 @@
 
 
 
-<h3 align="center">L5, Mission 1</h3>
+<h1 align="center">L5, Mission 1</h1>
 
 ## About The Project
 
-During this assignment, Kelsie Smity [![Kelsie Smitty](https://github.com/KelsieSmitty)and I collaborated on the backend tasks, employing the Agile methodology of Test-Driven Development (TDD). As an integral component of the project, we designed and implemented 3 RESTful APIs that play a crucial role in facilitating the insurance purchasing procedure.
+During this assignment, Kelsie Smith ![Kelsie Smitty](https://github.com/KelsieSmitty) and I collaborated on the backend tasks, employing the Agile methodology of Test-Driven Development (TDD). As an integral component of the project, we designed and implemented 3 RESTful APIs that play a crucial role in facilitating the insurance purchasing procedure.
 ## Built With
 
 [![Node.js](https://example.com/path/to/nodejs-logo.png)](https://nodejs.org/en)
@@ -30,7 +30,10 @@ npx tsc --init
 npm i nodemon -D
 ```
 
-To start the server, run: npm start server
+To start the server, run: 
+```shell
+npm start server
+```
 Prerequisites
 
 Before starting the server, make sure you add the following to your package.json:
@@ -47,7 +50,7 @@ Installation
 Install NPM packages listed above:
 
 ## Usage
-This project can be used as a back end server for an car insurance business, in wich three apis calculate car value, risk rating and premuim
+This project can be used as a back end server for a car insurance business, in wich three apis calculate car value, risk rating and premuim
 
 ## Roadmap
 - [ ] Api 1 calculates a car value, based on two inputs as json: Model and Year of car
@@ -59,6 +62,6 @@ This project can be used as a back end server for an car insurance business, in 
 
 Your Name - [@weissh0rn](https://x.com/weissh0rn) - luis@missionreadyhq.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/WeisshorNz/L5-Mission1)
+Project Link: [https://github.com/WeisshorNz/L5-Mission1](https://github.com/WeisshorNz/L5-Mission1)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
