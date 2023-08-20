@@ -15,3 +15,5 @@ server.use('/', routes)
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}, yeah man!`);
 });
+
+export default server;

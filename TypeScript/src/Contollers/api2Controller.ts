@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { countKeywords } from "../Services/countkeywords";
+import { countKeywords } from "../Services/countKeywords";
 
 //POST endpoint to calculate risk rating
 
