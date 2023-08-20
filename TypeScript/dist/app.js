@@ -24,15 +24,15 @@ function sumArrayValues(array) {
 }
 // Function that counts the number of times the words in the keywords array repeat in the input (word)
 function countKeywords(word) {
-    const keywords = ["collide", "crash", "scratch", "bump", "smash"];
-    const wordArray = word.toLowerCase().split(/\s+/);
-    let count = 0;
-    for (const keyword of keywords) {
-        count += wordArray.filter((w) => w.includes(keyword)).length;
-    }
-    // Limit the count to a maximum of 5
-    count = Math.min(count, 5);
-    return count;
+  const keywords = ["collide", "crash", "scratch", "bump", "smash"];
+  const wordArray = word.toLowerCase().split(/\s+/);
+  let count = 0;
+  for (const keyword of keywords) {
+    count += wordArray.filter((w) => w.includes(keyword)).length;
+  }
+  // Limit the count to a maximum of 5 and a minumum of 1
+  count = Math.max(1, Math.min(count, 5));
+  return count;
 }
 // Function that calculates yearly premium based on car value and risk
 function premiumCalculator(value, risk) {
